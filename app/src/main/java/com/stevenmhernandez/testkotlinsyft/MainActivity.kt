@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                             )
                     )
                     // your custom implementation to read a databatch from your data
-                    val batchData = dataRepository.loadDataBatch(
+                    val batchData = mnistDataRepository.loadDataBatch(
                             (clientConfig.planArgs["batch_size"] ?: error("batch_size doesn't exist")).toInt()
                     )
                     //get Model weights and return if not set already
@@ -97,9 +97,9 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 // Once training finishes generate the model diff
-                val diff = mnistJob.createDiff()
+                val diff = newJob.createDiff()
                 // Report the diff to PyGrid and finish the cycle
-                mnistJob.report(diff)
+                newJob.report(diff)
             }
 
             fun onRejected() {
