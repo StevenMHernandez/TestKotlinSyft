@@ -19,10 +19,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val localMNISTDataDataSource = LocalMNISTDataDataSource(resources)
+        val mnistDataRepository = MNISTDataRepository(localMNISTDataDataSource)
+
         val userId = "my Id"
 
         // Optional: Make an http request to your server to get an authentication token
-        val authToken = apiClient.requestToken("https://www.mywebsite.com/request-token/$userId")
+        val authToken = "eyJ0eXAi...."
 
         // The config defines all the adjustable properties of the syft worker
         // The url entered here cannot define connection protocol like https/wss since the worker allots them by its own
