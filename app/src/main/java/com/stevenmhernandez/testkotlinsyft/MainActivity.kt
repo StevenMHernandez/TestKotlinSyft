@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity() {
                 newJob.report(diff)
             }
 
-            fun onRejected() {
+            override fun onRejected(timeout: String) {
                 // Implement this function to define what your worker will do when your worker is rejected from the cycle
             }
 
